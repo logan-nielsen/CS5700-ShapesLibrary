@@ -9,9 +9,7 @@ class Point(var x: Double, var y: Double): Shape() {
         return Point(x, y)
     }
 
-    override fun move(xDelta: Double, yDelta: Double) {
-        require(xDelta.isFinite() && yDelta.isFinite()) { "Move deltas cannot be infinite or NaN" }
-
+    override fun doMove(xDelta: Double, yDelta: Double) {
         x += xDelta
         y += yDelta
     }

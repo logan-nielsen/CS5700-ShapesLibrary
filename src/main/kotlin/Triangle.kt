@@ -20,9 +20,7 @@ class Triangle(val point1: Point, val point2: Point, val point3: Point) : Shape2
         return kotlin.math.sqrt(s * (s - a) * (s - b) * (s - c))
     }
 
-    override fun move(xDelta: Double, yDelta: Double) {
-        require(xDelta.isFinite() && yDelta.isFinite()) { "Move deltas cannot be infinite or NaN" }
-
+    override fun doMove(xDelta: Double, yDelta: Double) {
         point1.move(xDelta, yDelta)
         point2.move(xDelta, yDelta)
         point3.move(xDelta, yDelta)
