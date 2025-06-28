@@ -6,7 +6,7 @@ import kotlin.math.sqrt
 class Line(val point1: Point, val point2: Point): Shape() {
     init {
         val pointsEqual = point1.x == point2.x && point1.y == point2.y
-        require(pointsEqual) { "Points cannot have the same coordinates" }
+        require(!pointsEqual) { "Points cannot have the same coordinates" }
     }
 
     fun getSlope(): Double {
