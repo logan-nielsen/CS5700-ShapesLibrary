@@ -12,6 +12,8 @@ open class Rectangle(val point1: Point, val point2: Point): Shape2D() {
     }
 
     override fun move(xDelta: Double, yDelta: Double) {
+        require(xDelta.isFinite() && yDelta.isFinite()) { "Move deltas cannot be infinite or NaN" }
+
         point1.move(xDelta, yDelta)
         point2.move(xDelta, yDelta)
     }

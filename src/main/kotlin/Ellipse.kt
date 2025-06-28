@@ -10,6 +10,8 @@ open class Ellipse(val center: Point, val radius1: Double, val radius2: Double) 
     }
 
     override fun move(xDelta: Double, yDelta: Double) {
+        require(xDelta.isFinite() && yDelta.isFinite()) { "Move deltas cannot be infinite or NaN" }
+
         center.move(xDelta, yDelta)
     }
 }

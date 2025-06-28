@@ -57,4 +57,27 @@ class TriangleTest {
             Triangle(Point(0.0, -10.0), Point(0.0, 0.0), Point(0.0, 0.0))
         }
     }
+
+    @Test
+    fun testInvalidMove() {
+        val triangle = Triangle(Point(0.0, 0.0), Point(1.0, 0.0), Point(0.0, 1.0))
+        assertFailsWith<IllegalArgumentException> {
+            triangle.move(Double.NaN, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            triangle.move(0.0, Double.NaN)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            triangle.move(Double.NEGATIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            triangle.move(0.0, Double.NEGATIVE_INFINITY)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            triangle.move(Double.POSITIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            triangle.move(0.0, Double.POSITIVE_INFINITY)
+        }
+    }
 }

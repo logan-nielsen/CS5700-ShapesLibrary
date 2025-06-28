@@ -42,4 +42,27 @@ class EllipseTest {
             Ellipse(Point(0.0, 0.0), 1.0, -1.0)
         }
     }
+
+    @Test
+    fun testInvalidMove() {
+        val ellipse = Ellipse(Point(0.0, 0.0), 1.0, 1.0)
+        assertFailsWith<IllegalArgumentException> {
+            ellipse.move(Double.NaN, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            ellipse.move(0.0, Double.NaN)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            ellipse.move(Double.NEGATIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            ellipse.move(0.0, Double.NEGATIVE_INFINITY)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            ellipse.move(Double.POSITIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            ellipse.move(0.0, Double.POSITIVE_INFINITY)
+        }
+    }
 }

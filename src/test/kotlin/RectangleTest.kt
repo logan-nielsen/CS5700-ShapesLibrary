@@ -54,4 +54,27 @@ class RectangleTest {
             Rectangle(Point(0.0, 0.0), Point(-50.0, 0.0))
         }
     }
+
+    @Test
+    fun testInvalidMove() {
+        val rectangle = Rectangle(Point(0.0, 0.0), Point(1.0, 1.0))
+        assertFailsWith<IllegalArgumentException> {
+            rectangle.move(Double.NaN, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            rectangle.move(0.0, Double.NaN)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            rectangle.move(Double.NEGATIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            rectangle.move(0.0, Double.NEGATIVE_INFINITY)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            rectangle.move(Double.POSITIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            rectangle.move(0.0, Double.POSITIVE_INFINITY)
+        }
+    }
 }

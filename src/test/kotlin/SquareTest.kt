@@ -54,4 +54,27 @@ class SquareTest {
             Square(Point(2.0, 2.0), Point(-50.0, 0.0))
         }
     }
+
+    @Test
+    fun testInvalidMove() {
+        val square = Square(Point(0.0, 0.0), Point(1.0, 1.0))
+        assertFailsWith<IllegalArgumentException> {
+            square.move(Double.NaN, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            square.move(0.0, Double.NaN)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            square.move(Double.NEGATIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            square.move(0.0, Double.NEGATIVE_INFINITY)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            square.move(Double.POSITIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            square.move(0.0, Double.POSITIVE_INFINITY)
+        }
+    }
 }

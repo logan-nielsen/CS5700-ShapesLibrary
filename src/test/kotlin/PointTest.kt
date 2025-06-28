@@ -59,6 +59,28 @@ class PointTest {
                 Point(0.0, invalidValue)
             }
         }
+    }
 
+    @Test
+    fun testInvalidMove() {
+        val point = Point(0.0, 0.0)
+        assertFailsWith<IllegalArgumentException> {
+            point.move(Double.NaN, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            point.move(0.0, Double.NaN)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            point.move(Double.NEGATIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            point.move(0.0, Double.NEGATIVE_INFINITY)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            point.move(Double.POSITIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            point.move(0.0, Double.POSITIVE_INFINITY)
+        }
     }
 }

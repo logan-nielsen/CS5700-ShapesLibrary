@@ -40,4 +40,27 @@ class CircleTest {
             Circle(Point(-20.0, 3.0), -1.0)
         }
     }
+
+    @Test
+    fun testInvalidMove() {
+        val circle = Circle(Point(0.0, 0.0), 1.0)
+        assertFailsWith<IllegalArgumentException> {
+            circle.move(Double.NaN, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            circle.move(0.0, Double.NaN)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            circle.move(Double.NEGATIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            circle.move(0.0, Double.NEGATIVE_INFINITY)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            circle.move(Double.POSITIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            circle.move(0.0, Double.POSITIVE_INFINITY)
+        }
+    }
 }

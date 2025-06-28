@@ -72,4 +72,27 @@ class LineTest {
             Line(Point(0.0, 0.0), Point(0.0, 0.0))
         }
     }
+
+    @Test
+    fun testInvalidMove() {
+        val line = Line(Point(0.0, 0.0), Point(1.0, 1.0))
+        assertFailsWith<IllegalArgumentException> {
+            line.move(Double.NaN, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            line.move(0.0, Double.NaN)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            line.move(Double.NEGATIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            line.move(0.0, Double.NEGATIVE_INFINITY)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            line.move(Double.POSITIVE_INFINITY, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+            line.move(0.0, Double.POSITIVE_INFINITY)
+        }
+    }
 }
