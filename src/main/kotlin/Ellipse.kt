@@ -1,9 +1,8 @@
 package org.example
 
-open class Ellipse(private val center: Point, private val radius1: Double, private val radius2: Double) : Shape2D() {
+open class Ellipse(val center: Point, val radius1: Double, val radius2: Double) : Shape2D() {
     init {
-        val area = getArea()
-        require(area != 0.0) { "Area cannot be zero" }
+        require(radius1 > 0 && radius2 > 0) { "Radii must be greater than 0" }
     }
 
     override fun getArea(): Double {
