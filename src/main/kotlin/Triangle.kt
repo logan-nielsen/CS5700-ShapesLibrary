@@ -2,14 +2,7 @@ package org.example
 
 class Triangle(val point1: Point, val point2: Point, val point3: Point) : Shape2D() {
     init {
-        val line1 = Line(point1, point2)
-        val line2 = Line(point2, point3)
-        val line3 = Line(point3, point1)
-        require(
-            !(line1.getLength() + line2.getLength() <= line3.getLength() ||
-                    line2.getLength() + line3.getLength() <= line1.getLength() ||
-                    line3.getLength() + line1.getLength() <= line2.getLength())
-        ) { "Points must form a valid triangle" }
+        require(this.getArea() > 0) { "Points must form a valid triangle" }
     }
 
     override fun getArea(): Double {
