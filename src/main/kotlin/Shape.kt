@@ -6,5 +6,5 @@ abstract class Shape {
         doMove(xDelta, yDelta)
     }
 
-    abstract fun doMove(xDelta: Double, yDelta: Double)
+    protected abstract fun doMove(xDelta: Double, yDelta: Double)
 }

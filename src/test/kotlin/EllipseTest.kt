@@ -37,9 +37,15 @@ class EllipseTest {
     fun testInvalidEllipse() {
         assertFailsWith<IllegalArgumentException> {
             Ellipse(Point(0.0, 0.0), 0.0, 1.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
             Ellipse(Point(0.0, 0.0), 1.0, 0.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
             Ellipse(Point(0.0, 0.0), -1.0, 1.0)
-            Ellipse(Point(0.0, 0.0), 1.0, -1.0)
+        }
+        assertFailsWith<IllegalArgumentException> {
+        Ellipse(Point(0.0, 0.0), 1.0, -1.0)
         }
     }
 

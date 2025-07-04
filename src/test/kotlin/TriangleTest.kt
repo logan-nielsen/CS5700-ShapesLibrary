@@ -48,13 +48,16 @@ class TriangleTest {
     @Test
     fun testInvalidTriangle() {
         assertFailsWith<IllegalArgumentException> {
-            Triangle(Point(0.0, 0.0), Point(0.0, 0.0), Point(0.0, 0.0))
+            Triangle(Point(0.0, 0.0), Point(0.0, 1.0), Point(0.0, 2.0))
         }
         assertFailsWith<IllegalArgumentException> {
-            Triangle(Point(0.0, 0.0), Point(0.0, 20.0), Point(0.0, 0.0))
+            Triangle(Point(1.0, 1.0), Point(1.0, 2.0), Point(1.0, 4.0))
         }
         assertFailsWith<IllegalArgumentException> {
-            Triangle(Point(0.0, -10.0), Point(0.0, 0.0), Point(0.0, 0.0))
+            Triangle(Point(-1.0, 1.0), Point(-1.0, 2.0), Point(-1.0, 4.0))
+        }
+        assertFailsWith<IllegalArgumentException> {
+            Triangle(Point(1.0, -1.0), Point(1.0, -2.0), Point(1.0, -4.0))
         }
     }
 
